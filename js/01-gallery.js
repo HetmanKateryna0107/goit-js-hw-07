@@ -26,11 +26,11 @@ const handleGaleryClick = (event) => {
   if (event.target.tagName !== "IMG") {
     return;
   }
- const onEscClose = (event) => {
-  if (event.key === "Escape") {
-    instance.close();
-  }
-}
+  const onEscClose = (event) => {
+    if (event.key === "Escape") {
+      instance.close();
+    }
+  };
   const imgSrc = event.target.getAttribute("data-source");
   const instance = basicLightbox.create(
     `
@@ -39,10 +39,9 @@ const handleGaleryClick = (event) => {
       onShow: () => {
         document.addEventListener("keydown", onEscClose);
       },
-      onClose:()=>{
-        document.removeEventListener("keydown", onEscClose)
-
-      }
+      onClose: () => {
+        document.removeEventListener("keydown", onEscClose);
+      },
     }
   );
 
